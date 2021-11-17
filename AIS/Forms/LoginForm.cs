@@ -38,7 +38,7 @@ namespace AIS.Forms
         }
         public void Method()
         {
-
+            string s = "111";
         }
         Modules.Simulation generation;
         private void LoginForm_Load(object sender, EventArgs e)
