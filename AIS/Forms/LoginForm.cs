@@ -43,5 +43,10 @@ namespace AIS.Forms
             generation = new Modules.Simulation();
             generation.label = label1;
         }
+
+        private void LoginForm_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }
