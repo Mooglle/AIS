@@ -34,7 +34,7 @@ namespace AIS.Forms
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            generation.Stop();
+            //sldjlsdjlsd
         }
 
         Modules.Simulation generation;
