@@ -36,7 +36,10 @@ namespace AIS.Forms
         {
             //sldjlsdjlsd
         }
+        public void Method()
+        {
 
+        }
         Modules.Simulation generation;
         private void LoginForm_Load(object sender, EventArgs e)
         {
