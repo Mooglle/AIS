@@ -18,7 +18,9 @@ namespace AIS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            LoginForm form = new LoginForm();
+            form.Show();
+            Application.Run();
         }
     }
 }
