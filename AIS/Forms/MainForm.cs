@@ -16,5 +16,15 @@ namespace AIS
         {
             InitializeComponent();
         }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

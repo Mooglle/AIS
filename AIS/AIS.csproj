@@ -98,7 +98,7 @@
     <Compile Include="Forms\SimulationForm.Designer.cs">
       <DependentUpon>SimulationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modules\DBConnector.cs" />
+    <Compile Include="Modules\DataBaseInteraction.cs" />
     <Compile Include="Modules\SimulationControl.cs" />
     <Compile Include="Modules\Sumulation.cs" />
     <Compile Include="Scripts\Program.cs" />
