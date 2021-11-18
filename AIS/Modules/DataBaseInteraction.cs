@@ -31,6 +31,10 @@ namespace AIS.Modules
             var command = new SqlCommand(sqlCommand, connection);
             command.ExecuteNonQuery();
         }
+        public void Select(string sqlCommand)
+        {
+
+        }
         public bool IsAccountValid(string username, string password, string role)
         {
             SqlConnection securityConnection = new SqlConnection();

@@ -30,7 +30,12 @@ namespace AIS
         }
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            Application.Exit();
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            db.Insert($"INSERT INTO CLIENTS (name) VALUES ('{textBox1.Text}');");
         }
     }
 }
