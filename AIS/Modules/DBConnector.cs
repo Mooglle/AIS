@@ -11,7 +11,11 @@ namespace AIS.Modules
     {
         public void Connect()
         {
-
+            SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=G:\\AIS\\AIS\\AIS\\SuperStoreDB.mdf;Integrated Security=True");
+            connection.Open();
+            var commannd = new SqlCommand("INSERT INTO Clients (Name) VALUES ('Sam');", connection);
+            commannd.ExecuteNonQuery();
+            connection.Close();
         }
     }
 }

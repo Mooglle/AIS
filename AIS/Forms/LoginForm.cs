@@ -41,6 +41,8 @@ namespace AIS.Forms
         {
             generation = new Modules.Simulation();
             generation.label = label1;
+            Modules.DBConnector db = new Modules.DBConnector();
+            db.Connect();
         }
     }
 }
