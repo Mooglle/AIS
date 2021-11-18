@@ -34,11 +34,7 @@ namespace AIS.Forms
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            //sldjlsdjlsd
-        }
-        public void Method()
-        {
-            int i = 0;
+            generation.Stop();
         }
         Modules.Simulation generation;
         private void LoginForm_Load(object sender, EventArgs e)
