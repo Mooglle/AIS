@@ -13,19 +13,25 @@ namespace AIS.Modules
         private SqlConnection connection;
         public DataBaseInteraction(Form form)
         {
-            form.Load += Connect;
             form.FormClosing += Disconnect;
             connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=G:\\AIS\\AIS\\AIS\\SuperStoreDB.mdf;Integrated Security=True");
+            Connect();
         }
-        private void Connect(object sender, EventArgs e)
+        private void Connect()
         {
             if (IsAvailable())
             {
                 connection.Open();
-                var commannd = new SqlCommand("INSERT INTO Clients (Name) VALUES ('Sam');", connection);
-                commannd.ExecuteNonQuery();
             }
         }
+
+        public void Insert(string sqlCommand)
+        {
+            var commannd = new SqlCommand(sqlCommand, connection);
+            commannd.ExecuteNonQuery();
+        }
+
+
         private void Disconnect(object sender, FormClosingEventArgs e)
         {
             connection.Close();

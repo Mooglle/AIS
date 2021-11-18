@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AIS.Modules;
 
 namespace AIS.Forms
 {
     public partial class LoginForm : Form
     {
+        private DataBaseInteraction db;
         public LoginForm()
         {
             InitializeComponent();
@@ -29,20 +31,16 @@ namespace AIS.Forms
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            generation.Start();
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            generation.Stop();
+
         }
-        Modules.Simulation generation;
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            generation = new Modules.Simulation();
-            generation.label = label1;
-            //Modules.DataBaseInteraction db = new Modules.DataBaseInteraction();
-            //db.Connect();
+            db = new DataBaseInteraction(this);
         }
     }
 }
