@@ -29,35 +29,23 @@
         private void InitializeComponent()
         {
             this.loginButton = new System.Windows.Forms.Button();
-            this.registrationFormButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
             this.minimizeButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // loginButton
             // 
-            this.loginButton.Location = new System.Drawing.Point(113, 358);
+            this.loginButton.Location = new System.Drawing.Point(113, 365);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(75, 23);
             this.loginButton.TabIndex = 0;
-            this.loginButton.Text = "Старт";
+            this.loginButton.Text = "Войти";
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
-            // 
-            // registrationFormButton
-            // 
-            this.registrationFormButton.Location = new System.Drawing.Point(113, 397);
-            this.registrationFormButton.Name = "registrationFormButton";
-            this.registrationFormButton.Size = new System.Drawing.Size(75, 23);
-            this.registrationFormButton.TabIndex = 1;
-            this.registrationFormButton.Text = "Регистрация";
-            this.registrationFormButton.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -113,39 +101,17 @@
             this.minimizeButton.UseVisualStyleBackColor = true;
             this.minimizeButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(222, 358);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Стоп";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(73, 285);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Счет";
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(324, 450);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.minimizeButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.registrationFormButton);
             this.Controls.Add(this.loginButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
@@ -160,14 +126,11 @@
         #endregion
 
         private System.Windows.Forms.Button loginButton;
-        private System.Windows.Forms.Button registrationFormButton;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button minimizeButton;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
     }
 }

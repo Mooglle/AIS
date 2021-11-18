@@ -27,10 +27,52 @@ namespace AIS.Modules
 
         public void Insert(string sqlCommand)
         {
-            var commannd = new SqlCommand(sqlCommand, connection);
-            commannd.ExecuteNonQuery();
+            var command = new SqlCommand(sqlCommand, connection);
+            command.ExecuteNonQuery();
         }
+        public bool IsAccountValid(string username, string password, string role)
+        {
+            SqlConnection securityConnection = new SqlConnection();
+            string sql_command = $"SELECT count(*) FROM Accounts WHERE name = {username};";
+            bool SqlUserExists;
 
+            using (SqlCommand command = new SqlCommand(sql_command, connection))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.GetValue(0).ToString() == "1")
+                        {
+                            SqlUserExists = true;
+                        }
+                    }
+                }
+            }
+            SqlUserExists = false;
+
+
+            if (SqlUserExists)
+            {
+                SqlConnection connection = new SqlConnection();
+                connection.ConnectionString = "Data Source=.;" + "User id=" + username + ";Password=" + password + ";";
+                try
+                {
+                    connection.Open();
+                    return true;
+                }
+                catch (SqlException ex)
+                {
+                    connection.Dispose();
+                    return false;
+                }
+
+            }
+            else
+            {
+                return true; // it is not a problem for me if account does not exist (as it will be created later), I am only worried about the case when the credentials are wrong
+            }
+        }
 
         private void Disconnect(object sender, FormClosingEventArgs e)
         {

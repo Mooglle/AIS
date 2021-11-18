@@ -154,6 +154,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="EmployeesAccounts.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EmployeesAccounts_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>EmployeesAccounts.mdf</DependentUpon>
+    </Content>
     <Content Include="SuperStoreDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
