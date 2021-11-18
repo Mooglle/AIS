@@ -38,7 +38,7 @@ namespace AIS.Forms
         }
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            db = new DataBaseInteraction(this);
+
         }
         private void M(string username, string password)
         {
@@ -79,9 +79,14 @@ namespace AIS.Forms
             /* Compare the results */
             for (int i = 0; i < 20; i++)
                 if (hashBytes[i + 16] != hash[i])
-                    throw new UnauthorizedAccessException();
+                {
+                        MessageBox.Show("Incorrect username or password", "Authentication has failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    conn.Close();
+                    return;
+                }
             conn.Close();
             Debug.WriteLine("ok");
+            db = new DataBaseInteraction(this, "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\AIS\\AIS\\AIS\\SuperStoreDB.mdf;Integrated Security=True");
         }
     }
 }

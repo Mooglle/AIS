@@ -11,10 +11,10 @@ namespace AIS.Modules
     public class DataBaseInteraction
     {
         private SqlConnection connection;
-        public DataBaseInteraction(Form form)
+        public DataBaseInteraction(Form form, string connectionString)
         {
             form.FormClosing += Disconnect;
-            connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=G:\\AIS\\AIS\\AIS\\SuperStoreDB.mdf;Integrated Security=True");
+            connection = new SqlConnection(connectionString);
             Connect();
         }
         private void Connect()
@@ -70,7 +70,7 @@ namespace AIS.Modules
             }
             else
             {
-                return true; // it is not a problem for me if account does not exist (as it will be created later), I am only worried about the case when the credentials are wrong
+                return true;
             }
         }
 
