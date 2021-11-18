@@ -16,7 +16,7 @@ namespace AIS.Modules
         {
 
         }
-        private void Connect(Form form)
+        public void Connect(Form form)
         {
             form.FormClosing += Disconnect;
             connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\AIS\\AIS\\AIS\\SuperStoreDB.mdf;Integrated Security=True");
