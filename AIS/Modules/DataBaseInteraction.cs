@@ -125,11 +125,24 @@ namespace AIS.Modules
             if (username.Length < 1 || password.Length < 1)
                 return false;
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\AIS\\AIS\\AIS\\EmployeesAccounts.mdf;Integrated Security=True";
+            conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\AIS\\AIS\\AIS\\EmployeesAccounts.mdf;Integrated Security=True";
             conn.Open();
             var command = new SqlCommand($"Select password FROM Accounts Where username = '{username}'", conn);
+            string savedPasswordHash;
             /* Fetch the stored value */
-            string savedPasswordHash = command.ExecuteScalar().ToString();
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                // if the result set is not NULL
+                if (!reader.HasRows)
+                {
+                    return false;
+                }
+                else
+                {
+                    reader.Read();
+                    savedPasswordHash = reader.GetString(0);
+                }
+            }
             /* Extract the bytes */
             byte[] hashBytes = Convert.FromBase64String(savedPasswordHash);
             /* Get the salt */
