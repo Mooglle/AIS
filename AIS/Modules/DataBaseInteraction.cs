@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using System.Data;
 
 namespace AIS.Modules
 {
@@ -38,22 +39,24 @@ namespace AIS.Modules
         public bool IsAccountValid(string username, string password, string role)
         {
             SqlConnection securityConnection = new SqlConnection();
-            string sql_command = $"SELECT count(*) FROM Accounts WHERE name = {username};";
+            string sql_command = "SELECT count(*) FROM Accounts WHERE name = @username;";
             bool SqlUserExists;
 
-            using (SqlCommand command = new SqlCommand(sql_command, connection))
+            SqlCommand command = new SqlCommand(sql_command, connection);
+            command.Parameters.Add("@username", SqlDbType.NChar);
+            command.Parameters["@username"].Value = username;
+
+            using (SqlDataReader reader = command.ExecuteReader())
             {
-                using (SqlDataReader reader = command.ExecuteReader())
+                while (reader.Read())
                 {
-                    while (reader.Read())
+                    if (reader.GetValue(0).ToString() == "1")
                     {
-                        if (reader.GetValue(0).ToString() == "1")
-                        {
-                            SqlUserExists = true;
-                        }
+                        SqlUserExists = true;
                     }
                 }
             }
+            
             SqlUserExists = false;
 
 
@@ -116,7 +119,11 @@ namespace AIS.Modules
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\AIS\\AIS\\AIS\\EmployeesAccounts.mdf;Integrated Security=True";
             conn.Open();
-            var command = new SqlCommand($"INSERT INTO Accounts (username, password) VALUES ('{username}', '{savedPasswordHash}');", conn);
+            var command = new SqlCommand($"INSERT INTO Accounts (username, password) VALUES (@username, @savedPasswordHash);", conn);
+            command.Parameters.Add("@username", SqlDbType.NChar);
+            command.Parameters["@username"].Value = username;
+            command.Parameters.Add("@password", SqlDbType.VarChar);
+            command.Parameters["@password"].Value = savedPasswordHash;
             command.ExecuteNonQuery();
             conn.Close();
         }
@@ -125,9 +132,11 @@ namespace AIS.Modules
             if (username.Length < 1 || password.Length < 1)
                 return false;
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\AIS\\AIS\\AIS\\EmployeesAccounts.mdf;Integrated Security=True";
+            conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\AIS\\AIS\\AIS\\EmployeesAccounts.mdf;Integrated Security=True";
             conn.Open();
-            var command = new SqlCommand($"Select password FROM Accounts Where username = '{username}'", conn);
+            SqlCommand command = new SqlCommand("Select password FROM Accounts Where username = @username", conn);
+            command.Parameters.Add("@username", SqlDbType.NChar);
+            command.Parameters["@username"].Value = username;
             string savedPasswordHash;
             /* Fetch the stored value */
             using (SqlDataReader reader = command.ExecuteReader())
