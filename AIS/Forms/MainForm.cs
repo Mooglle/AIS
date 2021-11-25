@@ -27,7 +27,7 @@ namespace AIS
             _db = new DataBaseInteraction();
             _db.Connect(this);
 
-            _forms.Add("Registration", new RegistrationForm());
+            _forms.Add("Registration", new RegistrationForm(_db));
         }
         private void OpenChildForm(Form childForm)
         {
@@ -47,11 +47,6 @@ namespace AIS
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            _db.Insert($"INSERT INTO CLIENTS (name) VALUES ('{textBox1.Text}');");
         }
 
         private void buttonOpenRegForm_Click(object sender, EventArgs e)

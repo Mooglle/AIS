@@ -37,8 +37,12 @@
             this.registrationButton = new System.Windows.Forms.Button();
             this.tabPageClients = new System.Windows.Forms.TabPage();
             this.labelIncorrectData = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxClientName = new System.Windows.Forms.TextBox();
+            this.buttonRegClient = new System.Windows.Forms.Button();
             this.tabControlRegistration.SuspendLayout();
             this.tabPageAccount.SuspendLayout();
+            this.tabPageClients.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlRegistration
@@ -114,6 +118,9 @@
             // 
             // tabPageClients
             // 
+            this.tabPageClients.Controls.Add(this.buttonRegClient);
+            this.tabPageClients.Controls.Add(this.textBoxClientName);
+            this.tabPageClients.Controls.Add(this.label1);
             this.tabPageClients.Location = new System.Drawing.Point(4, 22);
             this.tabPageClients.Name = "tabPageClients";
             this.tabPageClients.Padding = new System.Windows.Forms.Padding(3);
@@ -133,6 +140,33 @@
             this.labelIncorrectData.Text = "Неправильный логин или пароль";
             this.labelIncorrectData.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(257, 182);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Вставить клиента в БД";
+            // 
+            // textBoxClientName
+            // 
+            this.textBoxClientName.Location = new System.Drawing.Point(272, 242);
+            this.textBoxClientName.Name = "textBoxClientName";
+            this.textBoxClientName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxClientName.TabIndex = 4;
+            this.textBoxClientName.Text = "Введите имя";
+            // 
+            // buttonRegClient
+            // 
+            this.buttonRegClient.Location = new System.Drawing.Point(285, 326);
+            this.buttonRegClient.Name = "buttonRegClient";
+            this.buttonRegClient.Size = new System.Drawing.Size(75, 23);
+            this.buttonRegClient.TabIndex = 5;
+            this.buttonRegClient.Text = "Добавить";
+            this.buttonRegClient.UseVisualStyleBackColor = true;
+            this.buttonRegClient.Click += new System.EventHandler(this.buttonRegClient_Click);
+            // 
             // RegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,6 +178,8 @@
             this.tabControlRegistration.ResumeLayout(false);
             this.tabPageAccount.ResumeLayout(false);
             this.tabPageAccount.PerformLayout();
+            this.tabPageClients.ResumeLayout(false);
+            this.tabPageClients.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -159,5 +195,8 @@
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.Button registrationButton;
         private System.Windows.Forms.Label labelIncorrectData;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxClientName;
+        private System.Windows.Forms.Button buttonRegClient;
     }
 }

@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AIS.Modules;
+using AIS.Forms;
 
 namespace AIS.Forms
 {
     public partial class RegistrationForm : Form
     {
-        public RegistrationForm()
+        public DataBaseInteraction db;
+        public RegistrationForm(DataBaseInteraction dataBase)
         {
             InitializeComponent();
+            db = dataBase;
         }
 
         private void textBoxUsername_KeyDown(object sender, KeyEventArgs e)
@@ -49,7 +53,12 @@ namespace AIS.Forms
 
         private void registrationButton_Click(object sender, EventArgs e)
         {
+            db.CreateAccount(textBoxUsername.Text, textBoxPassword.Text);
+        }
 
+        private void buttonRegClient_Click(object sender, EventArgs e)
+        {
+            db.InsertClient(textBoxClientName.Text);
         }
     }
 }

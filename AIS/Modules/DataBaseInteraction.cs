@@ -26,9 +26,11 @@ namespace AIS.Modules
                 connection.Open();
             }
         }
-        public void Insert(string sqlCommand)
+        public void InsertClient(string name)
         {
-            var command = new SqlCommand(sqlCommand, connection);
+            var command = new SqlCommand("INSERT INTO CLIENTS (name) VALUES (@name);", connection);
+            command.Parameters.Add("@name", SqlDbType.NChar);
+            command.Parameters["@name"].Value = name;
             command.ExecuteNonQuery();
         }
         public void Select(string sqlCommand)
@@ -118,7 +120,7 @@ namespace AIS.Modules
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\AIS\\AIS\\AIS\\EmployeesAccounts.mdf;Integrated Security=True";
             conn.Open();
-            var command = new SqlCommand($"INSERT INTO Accounts (username, password) VALUES (@username, @savedPasswordHash);", conn);
+            var command = new SqlCommand($"INSERT INTO Accounts (username, password) VALUES (@username, @password);", conn);
             command.Parameters.Add("@username", SqlDbType.NChar);
             command.Parameters["@username"].Value = username;
             command.Parameters.Add("@password", SqlDbType.VarChar);
