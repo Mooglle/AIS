@@ -36,5 +36,13 @@ namespace AIS.Forms
             }
             _isRunning = !_isRunning;
         }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                _sim.config.newClientRate = Double.Parse(textBox1.Text);
+            }
+        }
     }
 }
