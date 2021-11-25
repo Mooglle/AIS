@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.Data;
+using System.IO;
 
 namespace AIS.Modules
 {
@@ -15,12 +16,21 @@ namespace AIS.Modules
         private SqlConnection connection;
         public DataBaseInteraction()
         {
-
+#if DEBUG
+            string workingDirectory = Environment.CurrentDirectory;
+            string path = Directory.GetParent(workingDirectory).Parent.FullName;
+            AppDomain.CurrentDomain.SetData("DataDirectory", path);
+#endif
+#if RELEASE
+            string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string path = (System.IO.Path.GetDirectoryName(executable));
+            AppDomain.CurrentDomain.SetData("DataDirectory", path);
+#endif
         }
         public void Connect(Form form)
         {
             form.FormClosing += Disconnect;
-            connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\AIS\\AIS\\AIS\\SuperStoreDB.mdf;Integrated Security=True");
+            connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\SuperStoreDB.mdf;Integrated Security=True");
             if (IsAvailable())
             {
                 connection.Open();
@@ -118,7 +128,7 @@ namespace AIS.Modules
 
             string savedPasswordHash = Convert.ToBase64String(hashBytes);
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\AIS\\AIS\\AIS\\EmployeesAccounts.mdf;Integrated Security=True";
+            conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\EmployeesAccounts.mdf;Integrated Security=True";
             conn.Open();
             var command = new SqlCommand($"INSERT INTO Accounts (username, password) VALUES (@username, @password);", conn);
             command.Parameters.Add("@username", SqlDbType.NChar);
@@ -133,7 +143,7 @@ namespace AIS.Modules
             if (username.Length < 1 || password.Length < 1)
                 return false;
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\AIS\\AIS\\AIS\\EmployeesAccounts.mdf;Integrated Security=True";
+            conn.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\EmployeesAccounts.mdf;Integrated Security=True";
             conn.Open();
             SqlCommand command = new SqlCommand("Select password FROM Accounts Where username = @username", conn);
             command.Parameters.Add("@username", SqlDbType.NChar);
