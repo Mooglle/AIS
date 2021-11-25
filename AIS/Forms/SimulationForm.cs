@@ -16,6 +16,7 @@ namespace AIS.Forms
     {
         private bool _isRunning = false;
         private Simulation _sim;
+
         public SimulationForm()
         {
             InitializeComponent();
