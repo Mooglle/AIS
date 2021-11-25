@@ -16,5 +16,40 @@ namespace AIS.Forms
         {
             InitializeComponent();
         }
+
+        private void textBoxUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (textBoxPassword.Text.Length > 0)
+                {
+                    registrationButton_Click(sender, e);
+                }
+                else
+                {
+                    textBoxPassword.Focus();
+                }
+            }
+        }
+
+        private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (textBoxUsername.Text.Length > 0)
+                {
+                    registrationButton_Click(sender, e);
+                }
+                else
+                {
+                    textBoxUsername.Focus();
+                }
+            }
+        }
+
+        private void registrationButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
