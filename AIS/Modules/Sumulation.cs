@@ -44,7 +44,6 @@ namespace AIS.Modules
             _cashboxes[0].Cashier = _cashiers[0];
             _cashboxes[1].Cashier = _cashiers[1];
         }
-
         public void Start()
         {
             if (!_isLoaded)
