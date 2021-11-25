@@ -21,7 +21,7 @@ namespace AIS.Modules
             string path = Directory.GetParent(workingDirectory).Parent.FullName;
             AppDomain.CurrentDomain.SetData("DataDirectory", path);
 #endif
-#if RELEASE
+#if !DEBUG
             string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
             string path = (System.IO.Path.GetDirectoryName(executable));
             AppDomain.CurrentDomain.SetData("DataDirectory", path);
