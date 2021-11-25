@@ -23,11 +23,16 @@ namespace AIS.Modules
         private List<Cashbox> _cashboxes = new List<Cashbox>();
 
         public decimal account = 0;
-        public Label label;
+        private Label _label;
 
         private bool _isLoaded = false;
 
         private DateTime _date = new DateTime(2021, 11, 1);
+
+        public Simulation(Label l)
+        {
+            _label = l;
+        }
         private void Load()
         {
             //Load Clients
@@ -68,7 +73,7 @@ namespace AIS.Modules
                         cb.Cash = 0;
                     }
                 }
-                label.Invoke(new Action(() => label.Text = _date.ToString() + ": " + account.ToString()));
+                _label.Invoke(new Action(() => _label.Text = _date.ToString() + ": " + account.ToString()));
                 PickClients(config.maxPickedClients);
                 _date = _date.AddDays(1);
                 Thread.Sleep(config.nextDayInterval);

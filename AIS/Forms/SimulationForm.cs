@@ -7,14 +7,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AIS.Modules;
+using AIS.Forms;
 
 namespace AIS.Forms
 {
-    public partial class Simulation : Form
+    public partial class SimulationForm : Form
     {
-        public Simulation()
+        private bool _isRunning = false;
+        private Simulation _sim;
+        public SimulationForm()
         {
             InitializeComponent();
+            _sim = new Simulation(labelMoney);
+        }
+
+        private void buttonTrigger_Click(object sender, EventArgs e)
+        {
+            if (!_isRunning)
+            {
+                _sim.Start();
+                buttonTrigger.Text = "Стоп";
+            }
+            else
+            {
+                _sim.Stop();
+                buttonTrigger.Text = "Старт";
+            }
+            _isRunning = !_isRunning;
         }
     }
 }

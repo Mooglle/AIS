@@ -101,7 +101,6 @@
       <DependentUpon>SimulationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\DataBaseInteraction.cs" />
-    <Compile Include="Modules\SimulationControl.cs" />
     <Compile Include="Modules\Sumulation.cs" />
     <Compile Include="Scripts\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RegistrationForm.resx">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SimulationForm.resx">
+      <DependentUpon>SimulationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

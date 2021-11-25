@@ -1,6 +1,6 @@
 ﻿namespace AIS.Forms
 {
-    partial class Simulation
+    partial class SimulationForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.buttonTrigger = new System.Windows.Forms.Button();
+            this.labelMoney = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // buttonTrigger
+            // 
+            this.buttonTrigger.Location = new System.Drawing.Point(43, 30);
+            this.buttonTrigger.Name = "buttonTrigger";
+            this.buttonTrigger.Size = new System.Drawing.Size(75, 23);
+            this.buttonTrigger.TabIndex = 0;
+            this.buttonTrigger.Text = "Старт";
+            this.buttonTrigger.UseVisualStyleBackColor = true;
+            this.buttonTrigger.Click += new System.EventHandler(this.buttonTrigger_Click);
+            // 
+            // labelMoney
+            // 
+            this.labelMoney.AutoSize = true;
+            this.labelMoney.Location = new System.Drawing.Point(43, 110);
+            this.labelMoney.Name = "labelMoney";
+            this.labelMoney.Size = new System.Drawing.Size(31, 13);
+            this.labelMoney.TabIndex = 1;
+            this.labelMoney.Text = "1000";
+            // 
+            // SimulationForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(580, 443);
+            this.Controls.Add(this.labelMoney);
+            this.Controls.Add(this.buttonTrigger);
+            this.Name = "SimulationForm";
             this.Text = "Simulation";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button buttonTrigger;
+        private System.Windows.Forms.Label labelMoney;
     }
 }

@@ -28,6 +28,7 @@ namespace AIS
             _db.Connect(this);
 
             _forms.Add("Registration", new RegistrationForm(_db));
+            _forms.Add("Simulation", new SimulationForm());
         }
         private void OpenChildForm(Form childForm)
         {
@@ -52,6 +53,11 @@ namespace AIS
         private void buttonOpenRegForm_Click(object sender, EventArgs e)
         {
             OpenChildForm(_forms["Registration"]);
+        }
+
+        private void buttonOpenSimulation_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(_forms["Simulation"]);
         }
     }
 }

@@ -30,6 +30,7 @@
         {
             this.panelMain = new System.Windows.Forms.Panel();
             this.buttonOpenRegForm = new System.Windows.Forms.Button();
+            this.buttonOpenSimulation = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panelMain
@@ -41,7 +42,7 @@
             // 
             // buttonOpenRegForm
             // 
-            this.buttonOpenRegForm.Location = new System.Drawing.Point(15, 294);
+            this.buttonOpenRegForm.Location = new System.Drawing.Point(12, 21);
             this.buttonOpenRegForm.Name = "buttonOpenRegForm";
             this.buttonOpenRegForm.Size = new System.Drawing.Size(100, 93);
             this.buttonOpenRegForm.TabIndex = 4;
@@ -49,11 +50,22 @@
             this.buttonOpenRegForm.UseVisualStyleBackColor = true;
             this.buttonOpenRegForm.Click += new System.EventHandler(this.buttonOpenRegForm_Click);
             // 
+            // buttonOpenSimulation
+            // 
+            this.buttonOpenSimulation.Location = new System.Drawing.Point(12, 140);
+            this.buttonOpenSimulation.Name = "buttonOpenSimulation";
+            this.buttonOpenSimulation.Size = new System.Drawing.Size(100, 93);
+            this.buttonOpenSimulation.TabIndex = 5;
+            this.buttonOpenSimulation.Text = "Форма симуляции";
+            this.buttonOpenSimulation.UseVisualStyleBackColor = true;
+            this.buttonOpenSimulation.Click += new System.EventHandler(this.buttonOpenSimulation_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonOpenSimulation);
             this.Controls.Add(this.buttonOpenRegForm);
             this.Controls.Add(this.panelMain);
             this.Name = "MainForm";
@@ -68,6 +80,7 @@
         #endregion
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Button buttonOpenRegForm;
+        private System.Windows.Forms.Button buttonOpenSimulation;
     }
 }
 
