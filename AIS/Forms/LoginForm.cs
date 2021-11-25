@@ -38,11 +38,41 @@ namespace AIS.Forms
         //admin verystrongpassword123
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if(db.Login(textBox1.Text, textBox2.Text))
+            if(db.Login(textBoxUsername.Text, textBoxPassword.Text))
             {
                 MainForm form = new MainForm();
                 form.Show();
                 this.Close();              
+            }
+        }
+
+        private void textBoxUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (textBoxPassword.Text.Length > 0)
+                {
+                    loginButton_Click(sender, e);
+                }
+                else
+                {
+                    textBoxPassword.Focus();
+                }
+            }
+        }
+
+        private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (textBoxUsername.Text.Length > 0)
+                {
+                    loginButton_Click(sender, e);
+                }
+                else
+                {
+                    textBoxUsername.Focus();
+                }
             }
         }
     }

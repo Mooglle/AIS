@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.loginButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxUsername = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
@@ -47,20 +47,22 @@
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
-            // textBox1
+            // textBoxUsername
             // 
-            this.textBox1.Location = new System.Drawing.Point(66, 109);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBoxUsername.Location = new System.Drawing.Point(66, 109);
+            this.textBoxUsername.Name = "textBoxUsername";
+            this.textBoxUsername.Size = new System.Drawing.Size(190, 20);
+            this.textBoxUsername.TabIndex = 2;
+            this.textBoxUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxUsername_KeyDown);
             // 
-            // textBox2
+            // textBoxPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(66, 176);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(190, 20);
-            this.textBox2.TabIndex = 3;
+            this.textBoxPassword.Location = new System.Drawing.Point(66, 176);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
+            this.textBoxPassword.Size = new System.Drawing.Size(190, 20);
+            this.textBoxPassword.TabIndex = 3;
+            this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
             // 
             // nameLabel
             // 
@@ -110,8 +112,8 @@
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.nameLabel);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxPassword);
+            this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.loginButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
@@ -126,8 +128,8 @@
         #endregion
 
         private System.Windows.Forms.Button loginButton;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxUsername;
+        private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Button exitButton;

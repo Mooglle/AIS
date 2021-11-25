@@ -26,7 +26,6 @@ namespace AIS.Modules
                 connection.Open();
             }
         }
-
         public void Insert(string sqlCommand)
         {
             var command = new SqlCommand(sqlCommand, connection);
