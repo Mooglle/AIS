@@ -168,6 +168,15 @@ namespace AIS.Modules
                         _entities.Clients.Add(_cG.GenerateNextClient());
                     Thread.Sleep(_rng.Next(delay));
                 }
+                if (config.autoDecay)
+                {
+                    if (config.newClientRate > 0)
+                    {
+                        config.newClientRate -= 0.15;
+                        if (config.newClientRate < 0)
+                            config.newClientRate = 0;
+                    }
+                }
             }
         }
         private bool Rng(double percentage)

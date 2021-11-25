@@ -16,6 +16,7 @@ namespace SuperStoreLibrary.Generation
         public int waitingInterval = 10;
         public int maxWait = 100;
         public int nextDayInterval = 1000;
+        public bool autoDecay = true;
         public Configuration()
         {
 

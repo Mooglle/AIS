@@ -44,5 +44,17 @@ namespace AIS.Forms
                 _sim.config.newClientRate = Double.Parse(textBox1.Text);
             }
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                _sim.config.autoDecay = true;
+            }
+            else
+            {
+                _sim.config.autoDecay = false;
+            }
+        }
     }
 }
