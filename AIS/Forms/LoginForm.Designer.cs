@@ -35,6 +35,7 @@
             this.passwordLabel = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
             this.minimizeButton = new System.Windows.Forms.Button();
+            this.labelIncorrectLogin = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // loginButton
@@ -103,11 +104,23 @@
             this.minimizeButton.UseVisualStyleBackColor = true;
             this.minimizeButton.Click += new System.EventHandler(this.button1_Click);
             // 
+            // labelIncorrectLogin
+            // 
+            this.labelIncorrectLogin.AutoSize = true;
+            this.labelIncorrectLogin.ForeColor = System.Drawing.Color.Red;
+            this.labelIncorrectLogin.Location = new System.Drawing.Point(73, 224);
+            this.labelIncorrectLogin.Name = "labelIncorrectLogin";
+            this.labelIncorrectLogin.Size = new System.Drawing.Size(175, 13);
+            this.labelIncorrectLogin.TabIndex = 8;
+            this.labelIncorrectLogin.Text = "Неправильный логин или пароль";
+            this.labelIncorrectLogin.Visible = false;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(324, 450);
+            this.Controls.Add(this.labelIncorrectLogin);
             this.Controls.Add(this.minimizeButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.passwordLabel);
@@ -134,5 +147,6 @@
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button minimizeButton;
+        private System.Windows.Forms.Label labelIncorrectLogin;
     }
 }

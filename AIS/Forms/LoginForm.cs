@@ -42,7 +42,11 @@ namespace AIS.Forms
             {
                 MainForm form = new MainForm();
                 form.Show();
-                this.Close();              
+                this.Close();
+            }
+            else
+            {
+                labelIncorrectLogin.Visible = true;
             }
         }
 
