@@ -16,5 +16,20 @@ namespace AIS.Forms
         {
             InitializeComponent();
         }
+
+        private void clientsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.clientsBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.superStoreDBDataSet);
+
+        }
+
+        private void DatabaseInspectorForm_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "superStoreDBDataSet.Clients". При необходимости она может быть перемещена или удалена.
+            this.clientsTableAdapter.Fill(this.superStoreDBDataSet.Clients);
+
+        }
     }
 }

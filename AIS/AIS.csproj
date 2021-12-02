@@ -114,6 +114,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SuperStoreDBDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\DatabaseInspectorForm.resx">
+      <DependentUpon>DatabaseInspectorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

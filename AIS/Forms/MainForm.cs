@@ -29,6 +29,7 @@ namespace AIS
 
             _forms.Add("Registration", new RegistrationForm(_db));
             _forms.Add("Simulation", new SimulationForm());
+            _forms.Add("DB", new DatabaseInspectorForm());
         }
         private void OpenChildForm(Form childForm)
         {
@@ -36,6 +37,7 @@ namespace AIS
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
+            panelMain.Controls.Remove(_currentChildForm);
             panelMain.Controls.Add(childForm);
             panelMain.Tag = childForm;
             childForm.BringToFront();
@@ -58,6 +60,16 @@ namespace AIS
         private void buttonOpenSimulation_Click(object sender, EventArgs e)
         {
             OpenChildForm(_forms["Simulation"]);
+        }
+
+        private void buttonOpenDBInspector_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(_forms["DB"]);
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+
         }
     }
 }
