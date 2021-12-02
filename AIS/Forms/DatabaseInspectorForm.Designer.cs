@@ -360,7 +360,6 @@
         private System.Windows.Forms.BindingSource clientsBindingSource;
         private SuperStoreDBDataSetTableAdapters.ClientsTableAdapter clientsTableAdapter;
         private SuperStoreDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
